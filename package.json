@@ -1,0 +1,16 @@
+{
+  "name": "create-next-example-app",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "post": "touch pages/`date +%Y-%m-%d`-slug-name.mdx && code pages/`date +%Y-%m-%d`-slug-name.mdx"
+  },
+  "dependencies": {
+    "@mdx-js/mdx": "^0.16.6",
+    "@zeit/next-mdx": "^1.2.0",
+    "next": "^7.0.2",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  }
+}
