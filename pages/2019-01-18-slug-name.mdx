@@ -1,0 +1,32 @@
+import Page from "../components/Page";
+
+<Page
+  title="This is a post!"
+  path="/2019-01-18-slug-name"
+  publishedAt={new Date("2019-01-08")}
+>
+
+About three years ago, I wrote a piece on how to get system fonts in CSS. The San Francisco fonts had just been released and getting them onto a web page wasn’t obvious or easy. A recent tweet reminded me that I needed to update this information.
+
+In my original post, I proposed the idea of a generic system font:
+
+```javascript
+{
+"scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "post": "touch pages/`date +%Y-%m-%d`-slug-name.mdx && code pages/`date +%Y-%m-%d`-slug-name.mdx"
+  },
+}
+```
+
+Apple agreed and made a proposal on the CSS mailing list. Over the next few months that proposal evolved from being called “system” to “system-ui”. (Once upon a time, Windows used a font called “System” that could have caused a conflict.)
+
+At the end of the day the CSS Font Module was updated and there was an official way to render text just like the operating system.
+
+As every web developer knows, getting a feature into the spec is one thing and getting it into the browser is quite another. Luckily the adoption of system-ui has been quick. Both Chrome and Safari support it fully on a wide variety of platforms. Only Mozilla and Windows are lagging behind.
+
+In many cases, you’ll also have to take backward compatibility into account — not every visitor has the latest & greatest browser. This CSS should cover all the bases:
+
+</Page>
