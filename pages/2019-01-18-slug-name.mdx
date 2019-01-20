@@ -1,32 +1,88 @@
 import Page from "../components/Page";
+import ThemeToggle, {
+  DarkmodeOnly,
+  LightmodeOnly
+} from "../components/ThemeToggle";
+import CodeContainer from "../components/CodeContainer";
+import ImageGroup from "../components/ImageGroup";
+import Timeline from "../components/Timeline";
 
 <Page
-  title="This is a post!"
+  title="The internet could be so much more."
   path="/2019-01-18-slug-name"
   publishedAt={new Date("2019-01-08")}
 >
 
-About three years ago, I wrote a piece on how to get system fonts in CSS. The San Francisco fonts had just been released and getting them onto a web page wasn’t obvious or easy. A recent tweet reminded me that I needed to update this information.
+The internet could be so much more.
 
-In my original post, I proposed the idea of a generic system font:
+The term "weblog" has existed since 1997[0]. As of March 2018, WordPress powers 30% of the internet[1].
 
-```javascript
-{
-"scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "post": "touch pages/`date +%Y-%m-%d`-slug-name.mdx && code pages/`date +%Y-%m-%d`-slug-name.mdx"
-  },
-}
-```
+From LiveJournal to WordPress to Medium, the humble blog post hasn't changed much.
 
-Apple agreed and made a proposal on the CSS mailing list. Over the next few months that proposal evolved from being called “system” to “system-ui”. (Once upon a time, Windows used a font called “System” that could have caused a conflict.)
+<ImageGroup>
 
-At the end of the day the CSS Font Module was updated and there was an official way to render text just like the operating system.
+![](https://www.webdesignmuseum.org/uploaded/fullscreen/livejournal-com-1999.png)
 
-As every web developer knows, getting a feature into the spec is one thing and getting it into the browser is quite another. Luckily the adoption of system-ui has been quick. Both Chrome and Safari support it fully on a wide variety of platforms. Only Mozilla and Windows are lagging behind.
+![](/static/wp.png)
 
-In many cases, you’ll also have to take backward compatibility into account — not every visitor has the latest & greatest browser. This CSS should cover all the bases:
+</ImageGroup>
+
+The internet has changed, though.
+
+Like, now it has Darkmode.
+
+<LightmodeOnly>
+
+To continue reading, **enable Darkmode**
+
+</LightmodeOnly>
+
+<DarkmodeOnly>
+
+✅ To continue reading, **enable Darkmode**
+
+</DarkmodeOnly>
+
+<ThemeToggle label="Darkmode" themes={["dark", "light"]} />
+
+<DarkmodeOnly>
+
+Wooh! Did you see the confetti?! It's dark now.
+
+---
+
+Where were we?
+
+Right, I was talking about The Internet™.
+
+<Timeline
+  title="A short history of the internet"
+  events={[
+    {
+      month: "January, 1969",
+      summary: "ARPANet establishes the first connection"
+    },
+    {
+      month: "February, 1992",
+      summary: "The internet is made legal for non-academic use"
+    },
+    {
+      month: "February, 1993",
+      summary: "William Bell launches the first web browser"
+    },
+    {
+      month: "February, 1994",
+      summary: "Marc Andressen releases a private beta of NetScape"
+    },
+    {
+      month: "April, 1995",
+      summary: "Microsoft releases Internet Explorer 3.0"
+    }
+  ]}
+/>
+
+</DarkmodeOnly>
 
 </Page>
+
+[1]: https://venturebeat.com/2018/03/05/wordpress-now-powers-30-of-websites/

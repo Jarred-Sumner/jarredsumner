@@ -9,13 +9,38 @@
   "dependencies": {
     "@mdx-js/mdx": "^0.16.6",
     "@zeit/next-mdx": "^1.2.0",
+    "classnames": "^2.2.6",
     "date-fns": "^1.30.1",
+    "hyperscript": "^2.0.2",
+    "lodash": "^4.17.11",
+    "mdast-util-definitions": "^1.2.3",
+    "mdast-util-to-string": "^1.0.5",
     "next": "^7.0.2",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-dom-confetti": "^0.0.10",
+    "react-fast-highlight": "^2.2.2",
+    "react-switch": "^3.0.4",
     "rehype-highlight": "^2.2.1",
+    "rehype-stringify": "^5.0.0",
     "remark-emoji": "^2.0.2",
     "remark-highlight.js": "^5.1.0",
-    "remark-images": "^0.16.1"
+    "remark-images": "^0.16.1",
+    "shortid": "^2.2.14"
+  },
+  "devDependencies": {
+    "@mapbox/hast-util-to-jsx": "^0.1.0",
+    "@mdx-js/mdxast": "^0.16.6",
+    "add": "^2.0.6",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "hast-util-to-mdast": "^4.0.0",
+    "hast-util-to-string": "^1.0.1",
+    "rehype-parse": "^6.0.0",
+    "remark-stringify": "^6.0.4",
+    "stringify-object": "^3.3.0",
+    "unified": "^7.1.0",
+    "unist-util-map": "^1.0.4",
+    "unist-util-visit-children": "^1.1.2",
+    "yarn": "^1.13.0"
   }
 }
