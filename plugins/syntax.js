@@ -1,15 +1,11 @@
-const visit = require("unist-util-visit");
 const map = require("unist-util-map");
 
-// Get the value of `node`.  Checks, `value`, `alt`, and `title`, in that order.
 function valueOf(node) {
   return (
     (node && node.value ? node.value : node.alt ? node.alt : node.title) || ""
   );
 }
 
-// Get the text content of a node.  If the node itself does not expose
-// plain-text fields, `toString` will recursivly try its children.
 function toString(node) {
   return [
     valueOf(node),
@@ -18,8 +14,8 @@ function toString(node) {
   ].join("");
 }
 
-module.exports = () => (tree, file) => {
-  const newTree = map(tree, _node => {
+module.exports = () => tree => {
+  return map(tree, _node => {
     const node = { ..._node };
 
     if (node.type === "html" && !node.value.includes("Page")) {
@@ -28,7 +24,7 @@ module.exports = () => (tree, file) => {
       const isSelfClosingNode = node.value.match(/<([^\/>]+)\/>/);
       const isOpeningNode = node.value.match(/\<[^/]/);
       const isClosingNode = node.value.match(/\<\/.*\>$/);
-      const openingWrapper = `<CodeContainer code={ ${JSON.stringify(code)}}>`;
+      const openingWrapper = `<CodeContainer code={${JSON.stringify(code)}}>`;
 
       if (isSelfClosingNode || (isOpeningNode && isClosingNode)) {
         node.value = `${openingWrapper}${node.value}</CodeContainer>`;
@@ -41,6 +37,4 @@ module.exports = () => (tree, file) => {
 
     return node;
   });
-
-  return newTree;
 };
